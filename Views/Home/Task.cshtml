@@ -1,0 +1,25 @@
+﻿
+<link rel="stylesheet" href="~/css/account.css  " asp-append-version="true" />
+
+<h1>Tasks List</h1>
+
+<a asp-controller="Task" asp-action="CreateTask" class="btn btn-success" style="margin-bottom: 20px;">Create New Task</a>
+
+<div class="task-container">
+    @foreach (var task in Model)
+    {
+        <div class="task-card">
+            <h3>@task.Name</h3>
+            <p>@task.Description</p>
+            <p><strong>Due Time:</strong> @task.DueTime.ToString("g")</p>
+
+            <a asp-controller="Task" asp-action="EditTask" asp-route-id="@task.Id" class="btn btn-primary">Edit</a>
+
+            <form asp-controller="Task" asp-action="DeleteTask" asp-route-id="@task.Id" method="post" style="display:inline;">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+    }
+</div>
+

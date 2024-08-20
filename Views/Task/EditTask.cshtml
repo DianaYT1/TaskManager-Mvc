@@ -1,16 +1,15 @@
 ﻿@model TM2.Models.Tasks
 @{
-    ViewBag.Title = "Create Task";
+    ViewBag.Title = "Edit Task";
     Layout = "~/Views/Shared/_TaskLayout.cshtml";
 }
 <div class="task-container">
     <div class="task-box">
-    <h1>New Task</h1>
-        <form method="post" asp-controller="Task" asp-action="CreateTask">
+        <form method="post" asp-controller="Task" asp-action="EditTask">
             <div class="form-group mb-3">
-                   <label asp-for="Name"></label>
-                   <input asp-for="Name" class="form-control" />
-                   
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" />
+               
             </div>
             <div class="form-group mb-3">
                 <label asp-for="Description"></label>
@@ -23,7 +22,7 @@
                        value="@Model.DueTime.ToString("yyyy-MM-ddTHH:mm")" />
             </div>
             <div class="form-group mb-3">
-                <button type="submit" class="btn btn-primary">Add Task</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
                 <a asp-controller="Task" asp-action="Index" class="btn btn-primary">Cancel</a>
             </div>
         </form>
