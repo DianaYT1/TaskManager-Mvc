@@ -12,6 +12,20 @@
             <h3>@task.Name</h3>
             <p>@task.Description</p>
             <p><strong>Due Time:</strong> @task.DueTime.ToString("g")</p>
+            @if (task.Collaborators != null && task.Collaborators.Count > 0)
+            {
+                <p><strong>Collaborators:</strong></p>
+                <ul>
+                    @foreach (var collaborator in task.Collaborators)
+                    {
+                        <li>@collaborator.Email</li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p><strong>Collaborators:</strong> No collaborators assigned.</p>
+            }
 
             <a asp-controller="Task" asp-action="EditTask" asp-route-id="@task.Id" class="btn btn-primary">Edit</a>
 

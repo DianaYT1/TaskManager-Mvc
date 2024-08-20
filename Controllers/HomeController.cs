@@ -26,9 +26,12 @@ namespace TM2.Controllers
         [Authorize]
         public async Task<IActionResult> Task()
         {
-            var tasks = await _context.Tasks.ToListAsync();
+            var tasks = await _context.Tasks
+                                      .Include(t => t.Collaborators) 
+                                      .ToListAsync();
             return View(tasks);
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
