@@ -1,0 +1,55 @@
+﻿@using TM2.ViewModels
+
+<link rel="stylesheet" href="~/css/calendar.css  " asp-append-version="true" />
+
+@model CalendarViewModel
+
+@{
+    var monthNames = new string[]
+    {
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    };
+
+   
+    var dayOfWeek = (int)Model.FirstDayOfMonth.DayOfWeek;
+}
+
+<h1>@monthNames[Model.DisplayMonth - 1] @Model.DisplayYear</h1>
+
+<div class="calendar-navigation">
+    <a href="@Url.Action("Index", new { month = Model.DisplayMonth - 1, year = Model.DisplayYear })">‹ Previous</a>
+    <a href="@Url.Action("Index", new { month = Model.DisplayMonth + 1, year = Model.DisplayYear })">Next ›</a>
+</div>
+
+<div class="calendar">
+    <div class="calendar-weekdays">
+        <span>Sun</span><span>Mon</span><span>Tue</span>
+        <span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+    </div>
+
+    <div class="calendar-days">
+      
+        @for (int i = 0; i < dayOfWeek; i++)
+        {
+            <div class="calendar-day empty"></div>
+        }
+
+        @for (int day = 1; day <= Model.DaysInMonth; day++)
+        {
+            <div class="calendar-day">
+                <span class="day-number">@day</span>
+
+                <!-- Задачи за съответния ден -->
+                @foreach (var task in Model.Tasks.Where(t => t.DueTime.Day == day))
+                {
+                    <div class="task">
+                        @task.Name - @task.Description
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+
