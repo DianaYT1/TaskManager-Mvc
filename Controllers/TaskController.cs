@@ -95,7 +95,7 @@ namespace TM2.Controllers
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction("Task", "Home");
-            }
+        }
 
 
         [HttpGet]

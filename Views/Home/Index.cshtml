@@ -3,6 +3,28 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to Task Manager</h1>
+    <p>Manage your tasks efficiently and stay organized!</p>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <div class="task-card">
+            <h5>Create Task</h5>
+            <p>Create a new task and assign collaborators.</p>
+            <a href="@Url.Action("CreateTask", "Task")" class="btn btn-primary">Create Task</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="task-card">
+            <h5>View Tasks</h5>
+            <p>See all your current tasks and manage them.</p>
+            <a href="@Url.Action("Task", "Home")" class="btn btn-primary">View Tasks</a>
+        </div>
+    </div>
+</div>
+
+<!-- Контейнер за изображението на робота -->
+<div class="robot-container">
+    <img src="~/images/Adorable_AI-Generated_Robots-removebg-preview.png" alt="Adorable AI Robot" class="robot-image">
 </div>

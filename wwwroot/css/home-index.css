@@ -1,0 +1,47 @@
+﻿.robot-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 50px; /* Разстояние от горната част на страницата */
+    margin-bottom: 0;/* Разстояние между робота и футъра */
+}
+
+.robot-image {
+    max-width: 300px;
+    height: auto;
+    z-index: 1;
+}
+
+/* За да се уверим, че футърът е най-отдолу */
+footer {
+    z-index: 10;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #f8f9fa;
+    color: #333;
+    text-align: center;
+}
+
+.task-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+    .task-card:hover {
+        transform: translateY(-5px);
+    }
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+h1.display-4 {
+    color: #007bff;
+    margin-bottom: 30px;
+}
